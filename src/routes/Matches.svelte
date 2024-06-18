@@ -13,8 +13,8 @@
   onMount(() => {
     for (const match in matchData){
       const matchDisplay = document.createElement('match-display');
-      
-      matchDisplay.id = convertMatchString(match)
+    
+      matchDisplay.id = match
       matchDisplay.version = convertVersionString(matchData[match]["version"])
       matchDisplay.timestamp = unixTimestampToDateTime(matchData[match]["timestamp"])
       matchDisplay.length = matchData[match]["length"]
@@ -55,7 +55,7 @@
 
     // Check for 'a' (Alpha) in the input string
     if (input.includes('a')) {
-      result += 'Alpha ';
+      result += 'α-';
     }
 
     // Parse the version number (e.g., "2.1")
