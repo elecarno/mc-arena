@@ -1,0 +1,135 @@
+{
+    "s2-1": {
+        "version": "a-2.1",
+        "timestamp": 1718649960,
+        "length": "N/A",
+        "gamemode": "FFA-DM",
+        "map": "castle",
+        "moderator": "Jellycarno",
+        "players": {
+            "P_0": {
+                "Ne": 53 
+            },
+            "P_02": {
+                "FK": 26
+            },
+            "Jellycarno": {
+                "Gl": 7,
+                "Sp": 10,
+                "Sw": 6
+            },
+            "Garnet06": {
+                "FA": 9,
+                "Ni": 3,
+                "Sw": 8
+            }
+        }
+    },
+    "s2-2": {
+        "version": "a-2.1",
+        "timestamp": 1718651100,
+        "length": "N/A",
+        "gamemode": "PD-FFA",
+        "map": "swimming_pool",
+        "moderator": "Jellycarno",
+        "players": {
+            "P_0": {
+                "Sp": 8
+            },
+            "P_02": {
+                "Ne": 1
+            },
+            "Jellycarno": {
+                "FA": 1
+            }
+        },
+        "rounds":[
+            "P_0",
+            "P_02",
+            "P_02",
+            "P_0",
+            "P_0"
+        ]
+    },
+    "s2-3": {
+        "version": "a-2.1",
+        "timestamp": 1718652180,
+        "length": "15",
+        "gamemode": "PD-FFA",
+        "map": "industrial",
+        "moderator": "Jellycarno",
+        "players": {
+            "P_0": {
+                "Gl": 7
+            },
+            "P_02": {
+                "FK": 2
+            },
+            "Jellycarno": {
+                "Ni": 8
+            },
+            "Garnet06": {
+                "Sp": 0
+            }
+        },
+        "rounds":[
+            "P_0",
+            "P_0",
+            "Jellycarno",
+            "Jellycarno",
+            "P_02",
+            "Jellycarno"
+        ]
+    },
+    "s2-4": {
+        "version": "a-2.2-dev",
+        "timestamp": 1718653860,
+        "length": "26",
+        "gamemode": "FFA-DM",
+        "map": "mega_paintball",
+        "moderator": "Jellycarno",
+        "players": {
+            "P_0": {
+                "Ne": 13,
+                "Sp": 47 
+            },
+            "P_02": {
+                "FK": 31
+            },
+            "Jellycarno": {
+                "Gl": 38,
+                "Sw": 17 
+            },
+            "Garnet06": {
+                "Sp": 7,
+                "Ne": 20
+            }
+        }
+    },
+    "s2-5": {
+        "version": "a-2.2-dev",
+        "timestamp": 1718655540,
+        "length": "27",
+        "gamemode": "FFA-DM",
+        "map": "backcity",
+        "moderator": "Jellycarno",
+        "players": {
+            "P_0": {
+                "Sp": 11,
+                "FA": 39
+            },
+            "P_02": {
+                "FK": 29
+            },
+            "Jellycarno": {
+                "Gl": 25,
+                "Sw": 14,
+                "Ne": 8
+            },
+            "Garnet06": {
+                "Gl": 15,
+                "Sw": 24
+            }
+        }
+    }
+}
