@@ -10,9 +10,13 @@
     "generate-html": "mkdir -p dist && cp index.html dist/"
   },
   "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.2",
     "@sveltejs/adapter-vercel": "^5.3.2",
-    "@sveltejs/vite-plugin-svelte": "^3.0.2",
-    "svelte": "^4.2.12",
+    "@sveltejs/vite-plugin-svelte": "^3.1.1",
+    "svelte": "^4.2.18",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "svelte-routing": "^2.13.0"
   }
 }

@@ -10,7 +10,7 @@
 
 <style>
 	nav {
-		background-color: gray;
+		background-color: grey;
 		color: white;
 		height: 70px;
 	}

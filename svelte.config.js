@@ -1,13 +1,17 @@
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import adapter from '@sveltejs/adapter-vercel';
 
 export default {
-  // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
-  // for more information about preprocessors
   preprocess: vitePreprocess(),
   kit: {
-		adapter: adapter({
-			// see below for options that can be set here
-		})
-	}
-}
+    adapter: adapter({
+      // adapter-vercel options
+    }),
+    // Svelte compiler options
+    target: '#svelte', // This is required in kit configuration
+    compilerOptions: {
+      customElement: true,
+      // other compiler options can be set here
+    },
+  },
+};

@@ -1,11 +1,20 @@
 <script>
-  import DisplayData from './lib/DisplayData.svelte';
+	import { Router, Route, Link } from 'svelte-routing';
+	import Home from './routes/Home.svelte';
 	import Navbar from './lib/Navbar.svelte';
+    import Matches from './routes/Matches.svelte';
+    import Leaderboards from './routes/Leaderboards.svelte';
+    import Statistics from './routes/Statistics.svelte';
 </script>
 
 <Navbar/>
 <div class="app">
-	<DisplayData/>
+	<Router>
+		<Route path="/" component={Home}/>
+		<Route path="/matches" component={Matches}/>
+		<Route path="/leaderboards" component={Leaderboards}/>
+		<Route path="/stats" component={Statistics}/>
+	</Router>
 </div>
 <footer>
 	<p>MC Arena by github.com/elecarno, <a href="https://discord.gg/dvNcM2zK8Q">join the discord to play</a> </p>
@@ -18,7 +27,7 @@
 		min-height: 100vh;
 	}
 
-	main {
+	/* main {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
@@ -27,7 +36,7 @@
 		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
-	}
+	} */
 
 	footer {
 		display: flex;
