@@ -1,5 +1,5 @@
 <!-- DataDisplay.svelte -->
-<script>
+<!-- <script>
     import { onMount } from 'svelte';
     
     let items;
@@ -16,7 +16,11 @@
         console.error('Error fetching data:', error);
       }
     });
+</script> -->
+
+<script>
+  import data from '../data/matches.json';
 </script>
   
 <h2>Data from JSON:</h2>
-<pre>{JSON.stringify(items, null, 2)}</pre>
+<pre>{JSON.stringify(data, null, 2)}</pre>
