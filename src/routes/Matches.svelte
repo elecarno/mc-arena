@@ -1,6 +1,5 @@
 <script>
   import {onMount} from 'svelte';
-  import MatchDisplay from '../lib/MatchDisplay.svelte';
   import data from '../data/matches.json';
   const matchData = JSON.parse(JSON.stringify(data))
 

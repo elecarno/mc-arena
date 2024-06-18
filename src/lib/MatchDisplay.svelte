@@ -11,7 +11,9 @@
 </script>
 
 <div class="match-display">
-    {id}
+    <div id="header-bar">
+        {id}
+    </div>
     {version}
     {timestamp}
     {length}
@@ -25,4 +27,9 @@
         background-color: gray;
         width: 100%;
     }
+
+    #header-bar {
+        height: 50px;
+    }
+
 </style>
