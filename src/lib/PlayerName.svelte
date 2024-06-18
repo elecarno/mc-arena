@@ -1,3 +1,5 @@
+<svelte:options customElement="player-name"/>
+
 <script>
     export let name
 </script>

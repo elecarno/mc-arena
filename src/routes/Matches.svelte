@@ -10,6 +10,7 @@
   }
 
   let container;
+
   onMount(() => {
     for (const match in matchData){
       const matchDisplay = document.createElement('match-display');
@@ -21,12 +22,13 @@
       matchDisplay.gamemode = gamemodes[matchData[match]["gamemode"]]
       matchDisplay.map = capitalizeAndRemoveUnderscores(matchData[match]["map"])
       matchDisplay.moderator = matchData[match]["moderator"]
+      matchDisplay.players = matchData[match]["players"]
 
       if (matchDisplay.length != "N/A") {
         matchDisplay.length += " mins"
       }
 
-      container.appendChild(matchDisplay);
+      container.prepend(matchDisplay);
     }
 	});
 
@@ -98,8 +100,11 @@
 
 </script>
 
-<div class="matches" bind:this={container}>
+<div class="matches">
   <h1>Season 2 Matches</h1>
+  <div bind:this={container}>
+
+  </div>
 </div>
 
 <style>

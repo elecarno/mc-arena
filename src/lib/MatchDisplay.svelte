@@ -1,7 +1,9 @@
 <svelte:options customElement="match-display"/>
 
 <script>
+    import {onMount} from 'svelte';
     import PlayerName from '../lib/PlayerName.svelte'
+    import PlayerEntry from './PlayerEntry.svelte';
 
     export let id = "[id]"
     export let version = "[version]"
@@ -10,10 +12,42 @@
     export let gamemode = "[gamemode]"
     export let map = "[map]"
     export let moderator = "[moderator]"
+
+    export let players = {
+        "example player 1": {
+            "FA": 26,
+            "Ne": 19
+        },
+        "example player 2": {
+            "Sw": 16,
+            "Sp": 24
+        }
+    }
+
+    let classes = {
+        "FA": "Flame Archer",
+        "FK": "Flame Knight",
+        "Gl": "Glider",
+        "Ne": "Neptune",
+        "Ni": "Ninja",
+        "Sp": "Spy",
+        "Sw": "Swift"
+    }
+
+    let playersContainer
+    onMount(() => {
+        for (const player in players){
+            let playerEntry = document.createElement("player-entry")
+            playerEntry.name = player
+            playerEntry.data = players[player]
+            playersContainer.appendChild(playerEntry)
+        }
+    })
+
 </script>
 
 <div class="match-display">
-    <div id="header-bar">
+    <div class="header-bar">
         <div style="width: 50%">
             {id} • {version}
         </div>
@@ -30,7 +64,11 @@
             <p style="font-size: 13px;">{timestamp} ({length})</p>
         </div>
     </div>
-    CONTENT
+    <div style="padding: 15px;">
+        <!-- Winner: <PlayerName name="N/A"/> -->
+
+        <div id="players-container" bind:this={playersContainer}></div>
+    </div>
 </div>
 
 <style>
@@ -40,7 +78,7 @@
         margin-bottom: 15px;
     }
 
-    #header-bar {
+    .header-bar {
         height: 25px;
         background-color: gray;
         color: white;
@@ -51,4 +89,9 @@
         align-items: center;
     }
 
+    #players-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
 </style>
