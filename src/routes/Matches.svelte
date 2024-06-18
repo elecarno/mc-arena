@@ -1,6 +1,7 @@
 <script>
   import {onMount} from 'svelte';
   import data from '../data/matches.json';
+  import MatchDisplay from '../lib/MatchDisplay.svelte';
   const matchData = JSON.parse(JSON.stringify(data))
 
   let gamemodes = {
@@ -9,10 +10,10 @@
   }
 
   let container;
-
   onMount(() => {
     for (const match in matchData){
       const matchDisplay = document.createElement('match-display');
+      
       matchDisplay.id = convertMatchString(match)
       matchDisplay.version = convertVersionString(matchData[match]["version"])
       matchDisplay.timestamp = unixTimestampToDateTime(matchData[match]["timestamp"])
@@ -97,12 +98,12 @@
 
 </script>
 
+<div class="matches" bind:this={container}>
+  <h1>Season 2 Matches</h1>
+</div>
+
 <style>
-  .about {
+  .matches {
     margin: 2rem;
   }
 </style>
-
-<div class="about" bind:this={container}>
-  <h1>Season 2 Matches</h1>
-</div>

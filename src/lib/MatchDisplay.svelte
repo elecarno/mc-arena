@@ -24,12 +24,16 @@
 
 <style>
     .match-display {
-        background-color: gray;
+        background-color: lightgray;
         width: 100%;
     }
 
     #header-bar {
-        height: 50px;
+        height: 30px;
+        background-color: gray;
+        color: white;
+        padding: 5px;
+        padding-left: 10px;
     }
 
 </style>
