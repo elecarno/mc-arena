@@ -75,6 +75,7 @@
     let reorderedPlayers = reorderPlayersBySum(players);
     let position = 0
 
+    let mainDiv
     let playersContainer
     let roundsContainer
     let roundsSegment
@@ -117,12 +118,11 @@
                 roundsContainer.appendChild(div)
             }
         }
-
     })
 
 </script>
 
-<div class="match-display">
+<div class="match-display" bind:this={mainDiv}>
     <div class="header-bar">
         <div style="width: 50%">
             {id} • {version}
