@@ -95,6 +95,8 @@
   let seasonPointsContainer
   let lifetimePointsContainer
 
+  let currentChampion = "N/A"
+
   onMount(() => {
     let seasonKills = calculateTotalKills(matchData)
     
@@ -154,12 +156,17 @@
       // @ts-ignore
       leaderboardEntry.data = seasonPoints[player]
       seasonPointsContainer.appendChild(leaderboardEntry)
+
+      if (positionSeasonPoints == 1){
+        currentChampion = player
+      }
     }
   })
 
 </script>
 
 <div class="leaderboards">
+  <h1>Season 2 Current Champion: <PlayerName name={currentChampion}/></h1>
   <div id="board-container">
     <div class="leaderboard" bind:this={seasonKillsContainer}>
       <h3 class="title">Season 2 Kills</h3>
