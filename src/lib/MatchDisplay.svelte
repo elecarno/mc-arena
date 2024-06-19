@@ -2,6 +2,7 @@
 
 <script>
     import {onMount} from 'svelte';
+    import {reorderPlayersBySum, getMostFrequentName} from '../lib/data_utils.js'
     import PlayerName from '../lib/PlayerName.svelte'
     // @ts-ignore
     import PlayerEntry from './PlayerEntry.svelte';
@@ -28,52 +29,6 @@
 
     export let rounds = undefined
 
-    function reorderPlayersBySum(players) {
-        // Convert the players object to an array of [name, data] pairs
-        let playersArray = Object.entries(players);
-
-        // Calculate the sum of values for each player
-        playersArray.forEach(player => {
-            let sum = Object.values(player[1]).reduce((acc, val) => acc + val, 0);
-            player.push(sum);  // Add the sum to the player's array entry
-        });
-
-        // Sort the array based on the sum
-        // @ts-ignore
-        playersArray.sort((a, b) => b[2] - a[2]);
-
-        // Convert the array back to an object, without the sum
-        let orderedPlayers = {};
-        playersArray.forEach(player => {
-            orderedPlayers[player[0]] = player[1];
-        });
-
-        return orderedPlayers;
-    }
-
-    function getMostFrequentName(rounds) {
-        // Create an object to store the count of each name
-        let countMap = {};
-
-        // Iterate over the rounds array and count occurrences
-        rounds.forEach(name => {
-            countMap[name] = (countMap[name] || 0) + 1;
-        });
-
-        // Determine the name with the highest count
-        let mostFrequentName = null;
-        let maxCount = 0;
-
-        for (let name in countMap) {
-            if (countMap[name] > maxCount) {
-                maxCount = countMap[name];
-                mostFrequentName = name;
-            }
-        }
-
-        return mostFrequentName;
-    }
-
     let reorderedPlayers = reorderPlayersBySum(players);
     let position = 0
 
@@ -81,6 +36,7 @@
     let playersContainer
     let roundsContainer
     let roundsSegment
+    
     onMount(() => {
         for (const player in reorderedPlayers){
             position += 1

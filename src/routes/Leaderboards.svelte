@@ -1,5 +1,6 @@
 <script>
   import {onMount} from 'svelte';
+  import {calculateTotalKills, calculatePlayerPoints} from '../lib/data_utils.js'
   // @ts-ignore
   import PlayerName from '../lib/PlayerName.svelte'
   // @ts-ignore
@@ -10,85 +11,6 @@
   const matchData = JSON.parse(JSON.stringify(data))
   // @ts-ignore
   const season1Data = JSON.parse(JSON.stringify(s1Data))
-
-  function calculateTotalKills(data) {
-    let totalKills = {};
-
-    for (const gameKey in data) {
-        const game = data[gameKey];
-        for (const player in game.players) {
-            if (!totalKills[player]) {
-                totalKills[player] = 0;
-            }
-            for (const stat in game.players[player]) {
-                totalKills[player] += game.players[player][stat];
-            }
-        }
-    }
-
-    const sortedKills = Object.entries(totalKills)
-        .sort(([, a], [, b]) => b - a)
-        .reduce((acc, [player, kills]) => {
-            acc[player] = kills;
-            return acc;
-        }, {});
-
-    return sortedKills;
-  }
-
-  function calculatePlayerPoints(data) {
-      const points = {
-          1: 18,
-          2: 12,
-          3: 6,
-          4: 3,
-          5: 2
-      };
-
-      let playerScores = {};
-
-      for (const gameKey in data) {
-          const game = data[gameKey];
-          let kills = {};
-
-          // Sum up kills for each player in the game
-          for (const player in game.players) {
-              kills[player] = 0;
-              for (const stat in game.players[player]) {
-                  kills[player] += game.players[player][stat];
-              }
-          }
-
-          // Sort players based on kills
-          let sortedPlayers = Object.entries(kills).sort(([, a], [, b]) => b - a);
-
-          // Assign points based on ranking
-          sortedPlayers.forEach(([player, _], index) => {
-              let rank = index + 1;
-              if (rank <= 4) {
-                  if (!playerScores[player]) {
-                      playerScores[player] = 0;
-                  }
-                  if (points[rank] != undefined){
-                    playerScores[player] += points[rank];
-                  } else {
-                    playerScores[player] += 1
-                  }
-                  
-              }
-          });
-      }
-
-      // Sort playerScores by total points in descending order
-      const sortedPlayerScores = Object.entries(playerScores)
-          .sort(([, a], [, b]) => b - a)
-          .reduce((acc, [player, score]) => {
-              acc[player] = score;
-              return acc;
-          }, {});
-
-      return sortedPlayerScores;
-  }
 
   let seasonKillsContainer
   let lifetimeKillsContainer

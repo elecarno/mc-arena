@@ -2,30 +2,17 @@
 
 <script>
     import {onMount} from 'svelte';
+    import {classes, pointsDistribution} from '../lib/data_utils.js'
     export let name
     export let data
     export let position = 0
     export let totalKills = 0
     export let points = 1
 
-    if (position == 1) {
-        points = 4
-    } else if (position == 2) {
-        points = 3
-    } else if (position == 3) {
-        points = 2
-    }
+    if (pointsDistribution[position] != undefined) {
+        points = pointsDistribution[position]
+    } 
     
-    let classes = {
-        "FA": "Flame Archer",
-        "FK": "Flame Knight",
-        "Gl": "Glider",
-        "Ne": "Neptune",
-        "Ni": "Ninja",
-        "Sp": "Spy",
-        "Sw": "Swift"
-    }
-
     let container
 
     onMount(() => {
