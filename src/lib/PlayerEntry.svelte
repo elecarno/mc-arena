@@ -4,22 +4,53 @@
     import {onMount} from 'svelte';
     export let name
     export let data
+    export let position = 0
+    export let totalKills = 0
+    export let points = 1
+
+    if (position == 1) {
+        points = 15
+    } else if (position == 2) {
+        points = 10
+    } else if (position == 3) {
+        points = 5
+    }
     
+    let classes = {
+        "FA": "Flame Archer",
+        "FK": "Flame Knight",
+        "Gl": "Glider",
+        "Ne": "Neptune",
+        "Ni": "Ninja",
+        "Sp": "Spy",
+        "Sw": "Swift"
+    }
+
     let container
 
     onMount(() => {
         for (const classSelected in data){
             let p = document.createElement("p")
-            p.textContent = classSelected + ": " + data[classSelected]
+            p.textContent = classes[classSelected] + ": " + data[classSelected]
             p.style.paddingLeft = "20px"
             p.style.margin = "0"
             container.appendChild(p)
+
+            totalKills += data[classSelected]
         }
     })
 </script>
 
-<div class="playerentry" bind:this={container}>
-  <p class="playername" style="width: 10%; margin: 0">{name}</p>  
+<div class="playerentry">
+    <div class="playerentry" style="width: 30%" >
+        <p style="width: 5%; margin:0; margin-right: 10px">{position}.</p>
+        <p class="playername" style="width: 50%; margin: 0">{name}</p>
+        <p class="total" style="width: 20%; margin: 0; margin-left: 10px">{totalKills}</p>
+    </div>
+    <div class="playerentry" style="width: 100%" bind:this={container}>
+
+    </div>
+    <p class="total" style="float: right; width: 5%; margin: 0; margin-left: 10px">{points}</p>
 </div>
 
 <style>
@@ -29,7 +60,7 @@
         width: 100%;
         padding-bottom: 4px;
         display: flex;
-        flex-direction: stretch;
+        flex-direction: row;
         align-items: center;
     }
 
@@ -38,6 +69,17 @@
         color: white;
         font-family: "Red Hat Mono", monospace;
         font-size: 14px;
+        padding-left: 3px;
+        padding-right: 3px;
+        border-radius: 4px;
+    }
+
+    .total {
+        background-color: #555555;
+        color: white;
+        font-family: "Red Hat Mono", monospace;
+        font-size: 14px;
+        text-align: center;
         padding-left: 3px;
         padding-right: 3px;
         border-radius: 4px;

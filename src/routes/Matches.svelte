@@ -23,6 +23,10 @@
       matchDisplay.map = capitalizeAndRemoveUnderscores(matchData[match]["map"])
       matchDisplay.moderator = matchData[match]["moderator"]
       matchDisplay.players = matchData[match]["players"]
+      
+      if (matchData[match]["rounds"] != undefined){
+        matchDisplay.rounds = matchData[match]["rounds"]
+      }
 
       if (matchDisplay.length != "N/A") {
         matchDisplay.length += " mins"
