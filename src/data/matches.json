@@ -131,5 +131,44 @@
                 "Sw": 24
             }
         }
+    },
+    "s2-6": {
+        "version": "a-2.2-dev",
+        "timestamp": 1718823360,
+        "length": "24",
+        "gamemode": "FFA-DM",
+        "map": "industrial",
+        "moderator": "Jellycarno",
+        "players": {
+            "Jellycarno": {
+                "Gl": 7,
+                "Sp": 3,
+                "Sw": 10
+            },
+            "RoscoPI": {
+                "FK": 5,
+                "Sw": 7,
+                "Sp": 4 
+            }
+        }
+    },
+    "s2-7": {
+        "version": "a-2.2-dev",
+        "timestamp": 1718825100,
+        "length": "27",
+        "gamemode": "FFA-DM",
+        "map": "castle",
+        "moderator": "Jellycarno",
+        "players": {
+            "Jellycarno": {
+                "Ne": 3,
+                "Gl": 5,
+                "FA": 15
+            },
+            "RoscoPI": {
+                "FA": 17,
+                "Gl": 13 
+            }
+        }
     }
 }
