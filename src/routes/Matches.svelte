@@ -1,9 +1,11 @@
 <script>
   import {onMount} from 'svelte';
   import data from '../data/matches.json';
-  import {unixTimestampToDateTime, convertVersionString, capitalizeAndRemoveUnderscores} from '../lib/data_utils.js'
+  import {unixTimestampToDateTime, convertVersionString, capitalizeAndRemoveUnderscores, reorderPlayersBySum} from '../lib/data_utils.js'
+  // @ts-ignore
   // @ts-ignore
   import MatchDisplay from '../lib/MatchDisplay.svelte';
+  import MatchEntry from '../lib/MatchEntry.svelte';
   const matchData = JSON.parse(JSON.stringify(data))
 
   let gamemodes = {
@@ -11,7 +13,8 @@
     "PD-FFA": "Permadeath FFA"
   }
 
-  let container;
+  let matchesContainer
+  let rundownContainer
 
   onMount(() => {
     for (const match in matchData){
@@ -44,14 +47,35 @@
         matchDisplay.length += " mins"
       }
 
-      container.prepend(matchDisplay);
+      let rundownDisplay = document.createElement('match-entry')
+      // @ts-ignore
+      rundownDisplay.matchId = match
+      // @ts-ignore
+      rundownDisplay.date = unixTimestampToDateTime(matchData[match]["timestamp"])
+      // @ts-ignore
+      rundownDisplay.gamemode = gamemodes[matchData[match]["gamemode"]]
+      // @ts-ignore
+      rundownDisplay.map = capitalizeAndRemoveUnderscores(matchData[match]["map"])
+
+      let reorderedPlayers = reorderPlayersBySum(matchData[match]["players"]);
+
+      // @ts-ignore
+      rundownDisplay.winner = Object.keys(reorderedPlayers)[0]
+
+      matchesContainer.prepend(matchDisplay);
+      rundownContainer.prepend(rundownDisplay)
     }
 	});
 </script>
 
 <div class="matches">
   <h1>Season 2 Matches</h1>
-  <div bind:this={container}>
+  <p>Showing {Object.keys(matchData).length} matches played since 2024-06-17.</p>
+  <div id="rundown-container" style="margin-bottom: 35px;" bind:this={rundownContainer}>
+    
+  </div>
+  <h3>Full Match Details</h3>
+  <div bind:this={matchesContainer}>
 
   </div>
 </div>
