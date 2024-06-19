@@ -9,7 +9,7 @@
 </script>
 
 <div class="leaderboard-entry">
-    <p style="margin: 0; margin-right: 10px;">{position}.</p>
+    <p style="margin: 0; margin-right: 10px; width: 6%">{position}.</p>
     <div style="width: 100%; margin: 0">
         <PlayerName name={name}/>
     </div>

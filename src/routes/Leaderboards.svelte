@@ -36,8 +36,64 @@
     return sortedKills;
   }
 
+  function calculatePlayerPoints(data) {
+      const points = {
+          1: 18,
+          2: 12,
+          3: 6,
+          4: 3,
+          5: 2
+      };
+
+      let playerScores = {};
+
+      for (const gameKey in data) {
+          const game = data[gameKey];
+          let kills = {};
+
+          // Sum up kills for each player in the game
+          for (const player in game.players) {
+              kills[player] = 0;
+              for (const stat in game.players[player]) {
+                  kills[player] += game.players[player][stat];
+              }
+          }
+
+          // Sort players based on kills
+          let sortedPlayers = Object.entries(kills).sort(([, a], [, b]) => b - a);
+
+          // Assign points based on ranking
+          sortedPlayers.forEach(([player, _], index) => {
+              let rank = index + 1;
+              if (rank <= 4) {
+                  if (!playerScores[player]) {
+                      playerScores[player] = 0;
+                  }
+                  if (points[rank] != undefined){
+                    playerScores[player] += points[rank];
+                  } else {
+                    playerScores[player] += 1
+                  }
+                  
+              }
+          });
+      }
+
+      // Sort playerScores by total points in descending order
+      const sortedPlayerScores = Object.entries(playerScores)
+          .sort(([, a], [, b]) => b - a)
+          .reduce((acc, [player, score]) => {
+              acc[player] = score;
+              return acc;
+          }, {});
+
+      return sortedPlayerScores;
+  }
+
   let seasonKillsContainer
   let lifetimeKillsContainer
+  let seasonPointsContainer
+  let lifetimePointsContainer
 
   onMount(() => {
     let seasonKills = calculateTotalKills(matchData)
@@ -55,13 +111,23 @@
       seasonKillsContainer.appendChild(leaderboardEntry)
     }
 
-    let lifetimeKills = {}
+    let lifetimeKills = seasonKills
     for (const player in seasonKills) {
-      lifetimeKills[player] = seasonKills[player]
       if (season1Data[player] != undefined){
         lifetimeKills[player] += season1Data[player]
       }
     }
+    for (const player in season1Data) {
+      if (lifetimeKills[player] == undefined){
+        lifetimeKills[player] = season1Data[player]
+      }
+    }
+    lifetimeKills = Object.entries(lifetimeKills)
+    .sort(([, a], [, b]) => b - a)
+    .reduce((acc, [player, kills]) => {
+        acc[player] = kills;
+        return acc;
+    }, {}); 
 
     let positionLifetimeKills = 0
     for (const player in lifetimeKills) {
@@ -72,10 +138,23 @@
       // @ts-ignore
       leaderboardEntry.name = player
       // @ts-ignore
-      leaderboardEntry.data = lifetimeKills[player] +
+      leaderboardEntry.data = lifetimeKills[player]
       lifetimeKillsContainer.appendChild(leaderboardEntry)
     }
 
+    let seasonPoints = calculatePlayerPoints(matchData)
+    let positionSeasonPoints = 0
+    for (const player in seasonPoints) {
+      positionSeasonPoints += 1;
+      let leaderboardEntry = document.createElement("leaderboard-entry")
+      // @ts-ignore
+      leaderboardEntry.position = positionSeasonPoints
+      // @ts-ignore
+      leaderboardEntry.name = player
+      // @ts-ignore
+      leaderboardEntry.data = seasonPoints[player]
+      seasonPointsContainer.appendChild(leaderboardEntry)
+    }
   })
 
 </script>
@@ -83,17 +162,17 @@
 <div class="leaderboards">
   <div id="board-container">
     <div class="leaderboard" bind:this={seasonKillsContainer}>
-      <h3>Season 2 Kills</h3>
+      <h3 class="title">Season 2 Kills</h3>
     </div>
-    <div class="leaderboard">
-      <h3>Season 2 Points</h3>
+    <div class="leaderboard" bind:this={seasonPointsContainer}>
+      <h3 class="title">Season 2 Points</h3>
     </div>
     <div class="leaderboard" bind:this={lifetimeKillsContainer}>
-      <h3>Lifetime Kills</h3>
+      <h3 class="title">Lifetime Kills</h3>
     </div>
-    <div class="leaderboard">
-      <h3>Lifetime Points</h3>
-    </div>
+    <!-- <div class="leaderboard" bind:this={lifetimePointsContainer}>
+      <h3 class="title">Lifetime Points</h3>
+    </div> -->
   </div>
 </div>
 
@@ -115,5 +194,11 @@
     width: 100%;
     margin: 10px;
     padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .title {
+    margin-top: 10px;
   }
 </style>

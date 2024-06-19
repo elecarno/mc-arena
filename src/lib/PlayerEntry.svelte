@@ -9,11 +9,11 @@
     export let points = 1
 
     if (position == 1) {
-        points = 15
+        points = 4
     } else if (position == 2) {
-        points = 10
+        points = 3
     } else if (position == 3) {
-        points = 5
+        points = 2
     }
     
     let classes = {
