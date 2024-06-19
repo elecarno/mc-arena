@@ -1,6 +1,7 @@
 <script>
   import {onMount} from 'svelte';
   import data from '../data/matches.json';
+  // @ts-ignore
   import MatchDisplay from '../lib/MatchDisplay.svelte';
   const matchData = JSON.parse(JSON.stringify(data))
 
@@ -16,19 +17,29 @@
       const matchDisplay = document.createElement('match-display');
     
       matchDisplay.id = match
+      // @ts-ignore
       matchDisplay.version = convertVersionString(matchData[match]["version"])
+      // @ts-ignore
       matchDisplay.timestamp = unixTimestampToDateTime(matchData[match]["timestamp"])
+      // @ts-ignore
       matchDisplay.length = matchData[match]["length"]
+      // @ts-ignore
       matchDisplay.gamemode = gamemodes[matchData[match]["gamemode"]]
+      // @ts-ignore
       matchDisplay.map = capitalizeAndRemoveUnderscores(matchData[match]["map"])
+      // @ts-ignore
       matchDisplay.moderator = matchData[match]["moderator"]
+      // @ts-ignore
       matchDisplay.players = matchData[match]["players"]
       
       if (matchData[match]["rounds"] != undefined){
+        // @ts-ignore
         matchDisplay.rounds = matchData[match]["rounds"]
       }
 
+      // @ts-ignore
       if (matchDisplay.length != "N/A") {
+        // @ts-ignore
         matchDisplay.length += " mins"
       }
 
@@ -78,6 +89,7 @@
     return result;
   }
 
+  // @ts-ignore
   function convertMatchString(input) {
     // Split the input string into parts using "-"
     const parts = input.split('-');

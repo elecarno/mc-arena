@@ -3,6 +3,7 @@
 <script>
     import {onMount} from 'svelte';
     import PlayerName from '../lib/PlayerName.svelte'
+    // @ts-ignore
     import PlayerEntry from './PlayerEntry.svelte';
 
     export let id = "[id]"
@@ -38,6 +39,7 @@
         });
 
         // Sort the array based on the sum
+        // @ts-ignore
         playersArray.sort((a, b) => b[2] - a[2]);
 
         // Convert the array back to an object, without the sum
@@ -83,8 +85,11 @@
         for (const player in reorderedPlayers){
             position += 1
             let playerEntry = document.createElement("player-entry")
+            // @ts-ignore
             playerEntry.name = player
+            // @ts-ignore
             playerEntry.data = players[player]
+            // @ts-ignore
             playerEntry.position = position
             playersContainer.appendChild(playerEntry)
 
@@ -99,6 +104,7 @@
         }
 
         if (rounds != undefined){
+            // @ts-ignore
             for (let round  = 0; round < rounds.length; round++) {
                 let playername = document.createElement("player-name")
                 let p = document.createElement("p")
@@ -112,6 +118,7 @@
                 p.style.margin = "0"
                 p.style.marginRight = "10px"
                 p.textContent = (round + 1) + "."
+                // @ts-ignore
                 playername.name = rounds[round]
                 div.appendChild(p)
                 div.appendChild(playername)
