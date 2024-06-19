@@ -199,3 +199,168 @@ export function getMostFrequentName(rounds) {
 
     return mostFrequentName;
 }
+
+export function countKillsPerClass(data) {
+    const killsPerClass = {};
+
+    for (const matchId in data) {
+        const matchDetails = data[matchId];
+        const players = matchDetails.players;
+
+        for (const playerId in players) {
+            const playerStats = players[playerId];
+
+            for (const classId in playerStats) {
+                const kills = playerStats[classId];
+                let className = classes[classId]
+
+                if (killsPerClass[className]) {
+                    killsPerClass[className] += kills;
+                } else {
+                    killsPerClass[className] = kills;
+                }
+            }
+        }
+    }
+
+    // Create a sorted object
+    const sortedKillsPerClass = {};
+    Object.keys(killsPerClass).sort().forEach(classId => {
+        sortedKillsPerClass[classId] = killsPerClass[classId];
+    });
+
+    return sortedKillsPerClass;
+}
+
+export function averageKillsPerClassPerMatch(data) {
+    const killsPerClass = {};
+    const matchesPerClass = {};
+
+    for (const matchId in data) {
+        const matchDetails = data[matchId];
+        const players = matchDetails.players;
+
+        for (const playerId in players) {
+            const playerStats = players[playerId];
+
+            for (const classId in playerStats) {
+                const kills = playerStats[classId];
+                let className = classes[classId]
+
+                if (killsPerClass[className]) {
+                    killsPerClass[className] += kills;
+                    matchesPerClass[className] += 1;
+                } else {
+                    killsPerClass[className] = kills;
+                    matchesPerClass[className] = 1;
+                }
+            }
+        }
+    }
+
+    const averageKillsPerClass = {};
+    for (const classId in killsPerClass) {
+        averageKillsPerClass[classId] = killsPerClass[classId] / matchesPerClass[classId];
+    }
+
+    // Create a sorted object
+    const sortedAverageKillsPerClass = {};
+    Object.keys(averageKillsPerClass).sort().forEach(classId => {
+        sortedAverageKillsPerClass[classId] = averageKillsPerClass[classId].toFixed(2);
+    });
+
+    return sortedAverageKillsPerClass;
+}
+
+export function countClassUsage(data) {
+    const classUsageCount = {};
+
+    for (const matchId in data) {
+        const matchDetails = data[matchId];
+        const players = matchDetails.players;
+
+        for (const playerId in players) {
+            const playerStats = players[playerId];
+
+            for (const classId in playerStats) {
+                let className = classes[classId]
+
+                if (classUsageCount[className]) {
+                    classUsageCount[className] += 1;
+                } else {
+                    classUsageCount[className] = 1;
+                }
+            }
+        }
+    }
+
+    // Create a sorted object
+    const sortedClassUsageCount = {};
+    Object.keys(classUsageCount).sort().forEach(classId => {
+        sortedClassUsageCount[classId] = classUsageCount[classId];
+    });
+
+    return sortedClassUsageCount;
+}
+
+export function averagePicksPerClassPerMatch(data) {
+    const classPickCount = {};
+    let totalMatches = 0;
+
+    for (const matchId in data) {
+        totalMatches++;
+        const matchDetails = data[matchId];
+        const players = matchDetails.players;
+
+        for (const playerId in players) {
+            const playerStats = players[playerId];
+
+            for (const classId in playerStats) {
+                if (classPickCount[classId]) {
+                    classPickCount[classId] += 1;
+                } else {
+                    classPickCount[classId] = 1;
+                }
+            }
+        }
+    }
+
+    const averagePicksPerClass = {};
+    for (const classId in classPickCount) {
+        averagePicksPerClass[classId] = (classPickCount[classId] / totalMatches).toFixed(2);
+    }
+
+    // Create a sorted object
+    const sortedAveragePicksPerClass = {};
+    Object.keys(averagePicksPerClass).sort().forEach(classId => {
+        sortedAveragePicksPerClass[classId] = averagePicksPerClass[classId];
+    });
+
+    return sortedAveragePicksPerClass;
+}
+
+export function totalKillsPerMap(data) {
+    const killsPerMap = {};
+
+    for (const matchId in data) {
+        const matchDetails = data[matchId];
+        const map = capitalizeAndRemoveUnderscores(matchDetails.map); 
+        const players = matchDetails.players;
+
+        for (const playerId in players) {
+            const playerStats = players[playerId];
+
+            for (const classId in playerStats) {
+                const kills = playerStats[classId];
+
+                if (killsPerMap[map]) {
+                    killsPerMap[map] += kills;
+                } else {
+                    killsPerMap[map] = kills;
+                }
+            }
+        }
+    }
+
+    return killsPerMap;
+}
