@@ -364,3 +364,22 @@ export function totalKillsPerMap(data) {
 
     return killsPerMap;
 }
+
+export function countTotalKills(data) {
+    let totalKills = 0;
+
+    for (const matchId in data) {
+        const matchDetails = data[matchId];
+        const players = matchDetails.players;
+
+        for (const playerId in players) {
+            const playerStats = players[playerId];
+
+            for (const classId in playerStats) {
+                totalKills += playerStats[classId];
+            }
+        }
+    }
+
+    return totalKills;
+}

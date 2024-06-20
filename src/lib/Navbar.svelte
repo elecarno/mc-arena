@@ -3,7 +3,6 @@
   <div id="nav-button-container">
     <li class="navbar-element"><a class="nav-link" href="/stats">Statistics</a></li>
     <li class="navbar-element"><a class="nav-link" href="/matches">Match History</a></li>
-    <li class="navbar-element"><a class="nav-link" href="/leaderboards">Leaderboards</a></li>
     <li class="navbar-element"><a class="nav-link" href="/">Home</a></li>
   </div>
 </nav>

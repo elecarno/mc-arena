@@ -3,7 +3,6 @@
 	import Home from './routes/Home.svelte';
 	import Navbar from './lib/Navbar.svelte';
     import Matches from './routes/Matches.svelte';
-    import Leaderboards from './routes/Leaderboards.svelte';
     import Statistics from './routes/Statistics.svelte';
 </script>
 
@@ -12,7 +11,6 @@
 	<Router>
 		<Route path="/" component={Home}/>
 		<Route path="/matches" component={Matches}/>
-		<Route path="/leaderboards" component={Leaderboards}/>
 		<Route path="/stats" component={Statistics}/>
 	</Router>
 </div>

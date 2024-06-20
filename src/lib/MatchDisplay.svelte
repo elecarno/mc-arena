@@ -129,6 +129,7 @@
         background-color: lightgray;
         width: 85%;
         margin-bottom: 15px;
+        border-radius: 10px;
     }
 
     .header-bar {
@@ -140,6 +141,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 
     #players-container {

@@ -1,9 +1,9 @@
 <script>
-  import BarChart from "../lib/BarChart.svelte";
   import data from '../data/matches.json';
   import {countKillsPerClass, averageKillsPerClassPerMatch, countClassUsage, averagePicksPerClassPerMatch, totalKillsPerMap} from '../lib/data_utils.js'
-    import CompoundBarChart from "../lib/CompoundBarChart.svelte";
-    import PieChart from "../lib/PieChart.svelte";
+  import CompoundBarChart from "../lib/CompoundBarChart.svelte";
+  import BarChart from "../lib/BarChart.svelte";
+  import PieChart from "../lib/PieChart.svelte";
   const matchData = JSON.parse(JSON.stringify(data))
 
   export let classTotalKills = countKillsPerClass(matchData)
