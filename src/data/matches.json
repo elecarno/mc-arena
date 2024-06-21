@@ -218,6 +218,14 @@
             "Jellycarno": {
                 "Sp": 4
             }
-        }
+        },
+        "rounds": [
+            "P_0",
+            "Jellycarno",
+            "P_02",
+            "P_02",
+            "P_0",
+            "P_0"
+        ]
     }
 }
