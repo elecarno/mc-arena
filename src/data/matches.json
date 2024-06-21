@@ -197,5 +197,27 @@
                 "Ni": 28
             }
         }
+    },
+    "s2-9": {
+        "version": "a-2.2-dev",
+        "timestamp": 1718998560,
+        "length": "12",
+        "gamemode": "PD-FFA",
+        "map": "castle",
+        "moderator": "Jellycarno",
+        "players": {
+            "P_0": {
+                "Ne": 6
+            },
+            "P_02": {
+                "FK": 5
+            },
+            "kebroppi": {
+                "Sw": 1
+            },
+            "Jellycarno": {
+                "Sp": 4
+            }
+        }
     }
 }
