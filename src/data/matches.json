@@ -227,5 +227,30 @@
             "P_0",
             "P_0"
         ]
+    },
+    "s2-10": {
+        "version": "a-2.2-dev",
+        "timestamp": 1719000840,
+        "length": "28",
+        "gamemode": "FFA-DM",
+        "map": "mega_paintball",
+        "moderator": "Jellycarno",
+        "players": {
+            "P_0": {
+                "Sp": 50
+            },
+            "P_02": {
+                "FK": 17
+            },
+            "kebroppi": {
+                "FA": 33
+            },
+            "Jellycarno": {
+                "Gl": 37
+            },
+            "Garnet": {
+                "Sw": 13
+            }
+        }
     }
 }
