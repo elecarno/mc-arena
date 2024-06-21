@@ -170,5 +170,32 @@
                 "Gl": 13 
             }
         }
+    },
+    "s2-8": {
+        "version": "a-2.2-dev",
+        "timestamp": 1718997780,
+        "length": "45",
+        "gamemode": "FFA-DM",
+        "map": "swimming_pool",
+        "moderator": "Jellycarno",
+        "players": {
+            "P_0": {
+                "Ne": 36,
+                "FA": 64
+            },
+            "P_02": {
+                "FK": 43
+            },
+            "kebroppi": {
+                "Sp": 9,
+                "Gl": 57
+            },
+            "Jellycarno": {
+                "Gl": 20,
+                "Sw": 15,
+                "Sp": 12,
+                "Ni": 28
+            }
+        }
     }
 }
