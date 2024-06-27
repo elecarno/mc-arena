@@ -4,6 +4,7 @@ export const classes = {
     "Gl": "Glider",
     "Ne": "Neptune",
     "Ni": "Ninja",
+    "Sh": "Sharpshooter",
     "Sp": "Spy",
     "Sw": "Swift"
 }
