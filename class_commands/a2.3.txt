@@ -37,5 +37,5 @@ Flame Knight
 /effect give @p minecraft:fire_resistance 999999 1 true
 
 Sharpshooter
-/give @p crossbow[item_name='{"text":"Sharpshooter\'s 1st Crossbow"}',lore=['{"text":"A precise and hard hitting weapon."}'],unbreakable={},fire_resistant={},enchantments={levels:{"minecraft:quick_charge":3,"minecraft:infinity":1}}] 1
+/give @p crossbow[item_name='{"text":"Sharpshooter\'s Crossbow"}',lore=['{"text":"A precise and hard hitting weapon."}'],unbreakable={},fire_resistant={},enchantments={levels:{"minecraft:quick_charge":3,"minecraft:infinity":1}}] 1
 /give @p arrow
