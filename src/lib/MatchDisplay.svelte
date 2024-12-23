@@ -7,6 +7,8 @@
     // @ts-ignore
     import PlayerEntry from './PlayerEntry.svelte';
 
+    import Backcity from "../static/backcity.png"
+
     export let id = "[id]"
     export let version = "[version]"
     export let timestamp = "[timestamp]"
@@ -85,7 +87,7 @@
 
 </script>
 
-<div class="match-display" bind:this={mainDiv}>
+<div class="match-display" style="background-image: url({Backcity});" bind:this={mainDiv}>
     <div class="header-bar">
         <div style="width: 50%">
             {id} • {version}
@@ -126,7 +128,9 @@
 
 <style>
     .match-display {
-        background-color: lightgray;
+        /* background-color: lightgray; */
+        background-size: cover;
+        background-position: center;
         width: 85%;
         margin-bottom: 15px;
         border-radius: 10px;

@@ -1,0 +1,42 @@
+## 1.21.4Commands
+Glider:
+/give @p bow[item_name='{"text":"Glider\'s Bow"}',lore=['{"text":"Said to be crafted from the lightest of timbers."}'],unbreakable={},enchantments={levels:{"minecraft:power":2,"minecraft:infinity":1}}] 1
+/give @p elytra[item_name='{"text":"Glider\'s Elytra"}',lore=['{"text":"Glider\'s famed wings, allowing them drift "}','{"text":"gracefully across the battlefield."}'],unbreakable={},] 1
+/give @p arrow
+
+Flame Archer:
+/give @p potion[item_name='{"text":"Flame Archer\'s Brew"}',lore=['{"text":"A potent brew to protect from flames."}'],enchantments={levels:{}},enchantment_glint_override=true,potion_contents={custom_color:16742945,custom_effects:[{id:"minecraft:fire_resistance",amplifier:1,duration:1000000,show_particles:0b}]}] 16
+/give @p bow[item_name='{"text":"Flame Archer\'s Bow"}',lore=['{"text":"A powerful yet dangerous weapon said to"}', '{"text":"make sparks with the lightest of touches."}'],unbreakable={},enchantments={levels:{"minecraft:flame":1,"minecraft:power":1,"minecraft:infinity":1}}] 1
+/effect give @p minecraft:fire_resistance 999999 1 true
+/give @p arrow
+
+Neptune:
+/give @p potion[item_name='{"text":"Neptune\'s Brew"}',lore=['{"text":"A potent brew to allow for breath below the waves"}'],enchantments={levels:{}},enchantment_glint_override=true,potion_contents={custom_color:5557503,custom_effects:[{id:"minecraft:water_breathing",amplifier:1,duration:1000000,show_particles:0b}]}] 16
+/give @p trident[item_name='{"text":"Neptune\'s 1st Trident"}',lore=['{"text":"Forged for the young warrior, a staple of their tribe."}'],unbreakable={},enchantments={levels:{"minecraft:loyalty":3, "minecraft:riptide":1}}] 1
+/give @p trident[item_name='{"text":"Neptune\'s 2nd Trident"}',lore=['{"text":"Formerly the weapon of a great sea beast, claimed as a prize."}'],unbreakable={},enchantments={levels:{"minecraft:loyalty":3}}] 1
+/effect give @p minecraft:water_breathing 999999 1 true
+
+Spy
+/give @p iron_sword[item_name='{"text":"Spy\'s Blade"}',lore=['{"text":"A modest yet deadly blade in the correct hands"}'],unbreakable={},enchantments={levels:{"minecraft:sharpness":1}}] 1
+/give @p iron_boots[item_name='{"text":"Spy\'s Boots"}',lore=['{"text":"lore"}'],unbreakable={},] 1
+/give @p ender_pearl[max_stack_size=64,item_name='{"text":"Spy\'s Pearl"}',unbreakable={},] 1024
+
+Swift
+/give @p potion[item_name='{"text":"Swift\'s Brew"}',lore=['{"text":"A potent brew to slow the mind and let the world pass by."}'],enchantments={levels:{}},enchantment_glint_override=true,potion_contents={custom_color:5557503,custom_effects:[{id:"minecraft:speed",amplifier:3,duration:1000000,show_particles:0b}]}] 16
+/give @p iron_sword[item_name='{"text":"Swift\'s Blade"}',lore=['{"text":"A light blade for the fastest warrior"}'],unbreakable={},enchantments={levels:{"minecraft:sharpness":3, "minecraft:knockback":1}}] 1
+
+Ninja
+/give @p potion[item_name='{"text":"Ninja\'s Brew"}',lore=['{"text":"A mysterious brew to hide from all sight."}'],enchantments={levels:{}},enchantment_glint_override=true,potion_contents={custom_color:5557503,custom_effects:[{id:"minecraft:invisibility",amplifier:1,duration:1000000,show_particles:0b}]}] 16
+/give @p iron_sword[item_name='{"text":"Ninja\'s Blade"}',lore=['{"text":"Many have fallen by this blade. Few have ever seen its wielder."}'],unbreakable={},enchantments={levels:{"minecraft:sharpness":3}}] 1
+/give @p netherite_boots[item_name='{"text":"Ninja\'s Boots"}',lore=['{"text":"Though a hinderance to stealth, these"}','{"text":"boots have kept the Ninja from death for many years."}'],unbreakable={},] 1
+/effect give @p minecraft:invisibility 999999 1 true
+
+Flame Knight
+/give @p potion[item_name='{"text":"Flame Knight\'s Brew"}',lore=['{"text":"A potent brew to protect from flames."}'],enchantments={levels:{}},enchantment_glint_override=true,potion_contents={custom_color:16742945,custom_effects:[{id:"minecraft:fire_resistance",amplifier:1,duration:1000000,show_particles:0b}]}] 16
+/give @p iron_sword[item_name='{"text":"Flame Knight\'s Blade"}',lore=['{"text":"A dangerous blade requiring a skilled touch."}'],unbreakable={},enchantments={levels:{"minecraft:sharpness":1, "minecraft:fire_aspect":1}}] 1
+/give @p leather_chestplate[item_name='{"text":"Flame Knight\'s Tunic"}',lore=['{"text":"A modest tunic for a skilled warrior who needs little armour."}'],unbreakable={},enchantments={levels:{"minecraft:fire_protection":4}}] 1
+/effect give @p minecraft:fire_resistance 999999 1 true
+
+Sharpshooter
+/give @p crossbow[item_name='{"text":"Sharpshooter\'s Crossbow"}',lore=['{"text":"A precise and hard hitting weapon."}'],unbreakable={},enchantments={levels:{"minecraft:quick_charge":3,"minecraft:infinity":1}}] 1
+/give @p arrow
