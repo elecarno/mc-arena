@@ -1,4 +1,4 @@
-## 1.21.4Commands
+## 1.21.4 Commands
 Glider:
 /give @p bow[item_name='{"text":"Glider\'s Bow"}',lore=['{"text":"Said to be crafted from the lightest of timbers."}'],unbreakable={},enchantments={levels:{"minecraft:power":2,"minecraft:infinity":1}}] 1
 /give @p elytra[item_name='{"text":"Glider\'s Elytra"}',lore=['{"text":"Glider\'s famed wings, allowing them drift "}','{"text":"gracefully across the battlefield."}'],unbreakable={},] 1
