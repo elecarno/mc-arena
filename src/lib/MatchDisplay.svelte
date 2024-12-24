@@ -87,7 +87,7 @@
 
 </script>
 
-<div class="match-display" style="background-image: url({Backcity});" bind:this={mainDiv}>
+<div class="match-display" style="background-color: lightgray" bind:this={mainDiv}>
     <div class="header-bar">
         <div style="width: 50%">
             {id} • {version}
